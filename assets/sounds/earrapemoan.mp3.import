@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/earrapemoan.mp3-e9420744cc2fe4f82b17fb6a2c2bf70d.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/earrapemoan.mp3"
+dest_files=[ "res://.import/earrapemoan.mp3-e9420744cc2fe4f82b17fb6a2c2bf70d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

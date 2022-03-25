@@ -63,6 +63,13 @@ func _physics_process(delta):
 		snap = Vector3.ZERO
 		gravity_vec = Vector3.UP * jump
 	
+	#change mouse sensitivty
+	if Input.is_action_just_pressed("sense_up"):
+		mouse_sense = mouse_sense + 0.025
+	if Input.is_action_just_pressed("sense_down"):
+		if(mouse_sense > 0):
+			mouse_sense = mouse_sense - 0.025
+	
 	#make it move
 	velocity = velocity.linear_interpolate(direction * speed, accel * delta)
 	movement = velocity + gravity_vec

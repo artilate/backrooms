@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/shaders/wall.tres" type="Material" id=1]
+
+[node name="Wall2" type="CSGBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2, 5.5 )
+use_collision = true
+width = 14.0
+height = 3.0
+depth = 0.25
+material = ExtResource( 1 )
