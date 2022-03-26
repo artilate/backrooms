@@ -1,0 +1,1 @@
+In the "Viewport Overlay" panel, set the scale to 0.25. Make sure in the project settings that the units of measures are set to "None". Afterwards, when you want to add grids. Add a grid that is 20 units in size and subdivides by 21 on the X and Y axis.
