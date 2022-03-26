@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/cube.glb-a22f8ab664df0382a94b6e1639351d3e.scn"
+path="res://.import/ceiling.glb-1b9a32a29a32cfe31ee8f077678b31c3.scn"
 
 [deps]
 
-source_file="res://assets/meshes/cube.glb"
-dest_files=[ "res://.import/cube.glb-a22f8ab664df0382a94b6e1639351d3e.scn" ]
+source_file="res://assets/meshes/levels/ceiling.glb"
+dest_files=[ "res://.import/ceiling.glb-1b9a32a29a32cfe31ee8f077678b31c3.scn" ]
 
 [params]
 

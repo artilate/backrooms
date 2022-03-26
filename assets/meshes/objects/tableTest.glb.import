@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/tableTest.glb-d29f89cd3a8cfbcd791865aeaf3da5e4.scn"
+path="res://.import/tableTest.glb-8b31eaa4eafbc70a973e67d71f14f1e0.scn"
 
 [deps]
 
-source_file="res://assets/meshes/tableTest.glb"
-dest_files=[ "res://.import/tableTest.glb-d29f89cd3a8cfbcd791865aeaf3da5e4.scn" ]
+source_file="res://assets/meshes/objects/tableTest.glb"
+dest_files=[ "res://.import/tableTest.glb-8b31eaa4eafbc70a973e67d71f14f1e0.scn" ]
 
 [params]
 

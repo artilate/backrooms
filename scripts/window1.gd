@@ -3,6 +3,7 @@ onready var sprite = get_node("../window1")
 var played = true
 
 func _on_Area_area_entered(area):
+	get_tree().change_scene("res://scenes/level1.tscn")
 	if(played == false):
 		played = true
 		playSound()

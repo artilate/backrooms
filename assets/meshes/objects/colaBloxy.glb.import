@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/ceiling.glb-ba061100a709fea5c15e08ab70004221.scn"
+path="res://.import/colaBloxy.glb-8b0c8bcec91075349334a4995c847f7e.scn"
 
 [deps]
 
-source_file="res://assets/meshes/ceiling.glb"
-dest_files=[ "res://.import/ceiling.glb-ba061100a709fea5c15e08ab70004221.scn" ]
+source_file="res://assets/meshes/objects/colaBloxy.glb"
+dest_files=[ "res://.import/colaBloxy.glb-8b0c8bcec91075349334a4995c847f7e.scn" ]
 
 [params]
 

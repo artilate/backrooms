@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/colaBloxy.glb-a9412e5909152edeeb87524bf97d49df.scn"
+path="res://.import/level1.glb-c7e2888140a8b89a5dee9a29ea9a22dc.scn"
 
 [deps]
 
-source_file="res://assets/meshes/colaBloxy.glb"
-dest_files=[ "res://.import/colaBloxy.glb-a9412e5909152edeeb87524bf97d49df.scn" ]
+source_file="res://assets/meshes/levels/level1.glb"
+dest_files=[ "res://.import/level1.glb-c7e2888140a8b89a5dee9a29ea9a22dc.scn" ]
 
 [params]
 

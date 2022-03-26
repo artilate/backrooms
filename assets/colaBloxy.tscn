@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://assets/meshes/colaBloxy.glb" type="PackedScene" id=1]
+[ext_resource path="res://assets/meshes/objects/colaBloxy.glb" type="PackedScene" id=1]
 
 [node name="colaBloxy" instance=ExtResource( 1 )]
 
