@@ -7,6 +7,7 @@ albedo_texture = ExtResource( 1 )
 
 [node name="Light1" type="CSGBox"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.75, 3.6125, -4.25 )
+use_in_baked_light = true
 width = 1.0
 height = 0.25
 material = SubResource( 14 )

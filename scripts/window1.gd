@@ -1,6 +1,6 @@
 extends Sprite3D
 onready var sprite = get_node("../window1")
-var played = false
+var played = true
 
 func _on_Area_area_entered(area):
 	if(played == false):
