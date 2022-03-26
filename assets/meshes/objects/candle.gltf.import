@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/level1.glb-c8a4a3eed43fb8742e71c459acca1535.scn"
+path="res://.import/candle.gltf-7d1449fd28cd20689894803458a9e2ff.scn"
 
 [deps]
 
-source_file="res://blender/level1.glb"
-dest_files=[ "res://.import/level1.glb-c8a4a3eed43fb8742e71c459acca1535.scn" ]
+source_file="res://assets/meshes/objects/candle.gltf"
+dest_files=[ "res://.import/candle.gltf-7d1449fd28cd20689894803458a9e2ff.scn" ]
 
 [params]
 
@@ -16,10 +16,10 @@ nodes/root_name="Scene Root"
 nodes/root_scale=1.0
 nodes/custom_script=""
 nodes/storage=0
-nodes/use_legacy_names=true
-materials/location=0
+nodes/use_legacy_names=false
+materials/location=1
 materials/storage=0
-materials/keep_on_reimport=false
+materials/keep_on_reimport=true
 meshes/octahedral_compression=true
 meshes/compress=4286
 meshes/ensure_tangents=true
@@ -28,7 +28,7 @@ meshes/light_baking=0
 meshes/lightmap_texel_size=0.1
 skins/use_named_skins=true
 external_files/store_in_subdir=false
-animation/import=true
+animation/import=false
 animation/fps=15
 animation/filter_script=""
 animation/storage=false

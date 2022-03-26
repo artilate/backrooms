@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/shaders/floor.tres" type="Material" id=2]
@@ -10,17 +10,28 @@
 [ext_resource path="res://scripts/window1.gd" type="Script" id=8]
 [ext_resource path="res://assets/sounds/earrapemoan.mp3" type="AudioStream" id=9]
 [ext_resource path="res://assets/light.tscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/tableTest.tscn" type="PackedScene" id=11]
-[ext_resource path="res://assets/colaBloxy.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/demo.lmbake" type="BakedLightmapData" id=13]
+[ext_resource path="res://assets/meshes/levelObjects/colaBloxy.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/meshes/objects/flashlight.obj" type="ArrayMesh" id=13]
+[ext_resource path="res://scripts/colaTable.gd" type="Script" id=14]
+[ext_resource path="res://assets/sounds/bloxyCola.mp3" type="AudioStream" id=15]
+[ext_resource path="res://scenes/flashlight.gd" type="Script" id=16]
 
 [sub_resource type="Environment" id=17]
 
 [sub_resource type="BoxShape" id=16]
 extents = Vector3( 1, 1.5, 1 )
 
+[sub_resource type="BoxShape" id=18]
+extents = Vector3( 1, 2.75, 1 )
+
+[sub_resource type="BoxShape" id=20]
+extents = Vector3( 6, 5.75, 7.25 )
+
 [sub_resource type="BoxShape" id=15]
 extents = Vector3( 1.125, 1, 1 )
+
+[sub_resource type="BoxShape" id=19]
+extents = Vector3( 3.25, 1, 1 )
 
 [node name="demo" type="Spatial"]
 script = ExtResource( 5 )
@@ -32,6 +43,7 @@ environment = SubResource( 17 )
 
 [node name="CSGCombiner" type="CSGCombiner" parent="WallFolder"]
 use_in_baked_light = true
+use_collision = true
 
 [node name="Wall2" parent="WallFolder/CSGCombiner" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875, 2, 5.5 )
@@ -95,6 +107,15 @@ height = 3.0
 depth = 0.25
 material = ExtResource( 4 )
 
+[node name="Wall10" type="CSGBox" parent="WallFolder/CSGCombiner"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 0.5, 0, -2.18557e-08, -13.75, 2, -11.75 )
+use_in_baked_light = true
+use_collision = true
+width = 11.75
+height = 3.0
+depth = 0.25
+material = ExtResource( 4 )
+
 [node name="LightFolder" type="Node" parent="."]
 
 [node name="Light1" parent="LightFolder" instance=ExtResource( 10 )]
@@ -126,25 +147,65 @@ material = ExtResource( 2 )
 
 [node name="Objects" type="Node" parent="."]
 
-[node name="table" type="StaticBody" parent="Objects"]
+[node name="colaTable" type="StaticBody" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.375, 0.75, -11.625 )
+script = ExtResource( 14 )
 
-[node name="colaBloxy" parent="Objects/table" instance=ExtResource( 12 )]
-transform = Transform( -0.424264, 0, -0.424264, 0, 0.6, 0, 0.424264, 0, -0.424264, 0, 0.5, 0 )
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Objects/colaTable"]
+stream = ExtResource( 15 )
+volume_db = -3.0
 
-[node name="CollisionShape" type="CollisionShape" parent="Objects/table"]
+[node name="colaBloxy" parent="Objects/colaTable" instance=ExtResource( 12 )]
+transform = Transform( -0.424264, 0, -0.424264, 0, 0.6, 0, 0.424264, 0, -0.424264, 0, -0.425, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/colaTable"]
 transform = Transform( -0.4, 0, 3.49691e-08, 0, 0.24, 0, -3.49691e-08, 0, -0.4, 0, 0.375, 0 )
 shape = SubResource( 16 )
 
-[node name="test" parent="Objects/table" instance=ExtResource( 11 )]
-transform = Transform( 0.24, 0, 0, 0, 0.24, 0, 0, 0, 0.24, 0, 0, 0 )
+[node name="Area" type="Area" parent="Objects/colaTable"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/colaTable/Area"]
+shape = SubResource( 18 )
+
+[node name="flashlight" type="MeshInstance" parent="Objects"]
+transform = Transform( 0.084, 0, 0, 0, 0.134188, -0.0287297, 0, 0.0488405, 0.0789342, -4.75, 0.65, -9.1 )
+mesh = ExtResource( 13 )
+skeleton = NodePath("../..")
+material/0 = null
+material/1 = null
+script = ExtResource( 16 )
+
+[node name="label" type="Label" parent="Objects/flashlight"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -75.5
+margin_top = -7.0
+margin_right = 75.5
+margin_bottom = 7.0
+text = "FLASHLIGHT OBTAINED"
+align = 1
+
+[node name="Area" type="Area" parent="Objects/flashlight"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/flashlight/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 2.23517e-08, 0, -2.98023e-08, 1, 0, 1.931, -0.578827 )
+shape = SubResource( 20 )
 
 [node name="window1" type="Sprite3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.875, 2, -14.6125 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.375, 2, -8.8875 )
 texture = ExtResource( 7 )
 script = ExtResource( 8 )
 
 [node name="Area" type="Area" parent="window1"]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="window1/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.875 )
@@ -157,10 +218,43 @@ unit_size = 5.1
 max_db = -6.0
 max_distance = 20.0
 
-[node name="BakedLightmap" type="BakedLightmap" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.5 )
-visible = false
-extents = Vector3( 162.625, 5, 175.5 )
-light_data = ExtResource( 13 )
+[node name="tutArea" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 1.5, -3.25 )
+collision_layer = 2
+collision_mask = 2
 
+[node name="CollisionShape" type="CollisionShape" parent="tutArea"]
+shape = SubResource( 19 )
+
+[node name="tutLabel" type="Label" parent="tutArea"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -93.5
+margin_top = -7.0
+margin_right = 93.5
+margin_bottom = 7.0
+text = "PRESS `E` TO INTERACT"
+align = 1
+
+[node name="ColorRect" type="ColorRect" parent="tutArea/tutLabel"]
+visible = false
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -85.0
+margin_top = -20.0
+margin_right = 85.0
+margin_bottom = 20.0
+color = Color( 0.172549, 0.172549, 0.172549, 1 )
+
+[connection signal="area_entered" from="Objects/colaTable/Area" to="Objects/colaTable" method="_on_Area_area_entered"]
+[connection signal="area_exited" from="Objects/colaTable/Area" to="Objects/colaTable" method="_on_Area_area_exited"]
+[connection signal="area_entered" from="Objects/flashlight/Area" to="Objects/flashlight" method="_on_Area_area_entered"]
+[connection signal="area_exited" from="Objects/flashlight/Area" to="Objects/flashlight" method="_on_Area_area_exited"]
 [connection signal="area_entered" from="window1/Area" to="window1" method="_on_Area_area_entered"]
+[connection signal="area_entered" from="tutArea" to="." method="_on_tutArea_area_entered"]

@@ -1,1 +1,1 @@
-In the "Viewport Overlay" panel, set the scale to 0.25. Make sure in the project settings that the units of measures are set to "None". Afterwards, when you want to add grids. Add a grid that is 20 units in size and subdivides by 21 on the X and Y axis.
+In the "Viewport Overlay" panel, set the scale to 0.25 and subdivions to 1. Make sure in the project settings that the units of measures are set to "None". Afterwards, when you want to add grids. Add a grid that is 20 units in size and subdivides by 21 (ACTUALY MIGHT USE 20) on the X and Y axis. Lastly, turn on snapping

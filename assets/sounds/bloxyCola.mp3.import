@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bloxyCola.mp3-d0a18e9b50fabc8216d9dc69f63593bf.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/bloxyCola.mp3"
+dest_files=[ "res://.import/bloxyCola.mp3-d0a18e9b50fabc8216d9dc69f63593bf.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

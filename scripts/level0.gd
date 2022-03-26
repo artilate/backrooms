@@ -2,7 +2,9 @@ extends Spatial
 
 func _ready():
 	$Roof.visible = true
-	$lightFolder/Light1.lightFlicker()
+	$lights/light.lightFlicker()
+	$WorldEnvironment.environment.ambient_light_color = Color(0, 0, 0)
+	$WorldEnvironment.environment.ambient_light_energy = 0
 	showFlashlight()
 
 func showFlashlight():
