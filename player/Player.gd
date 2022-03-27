@@ -1,7 +1,9 @@
 extends KinematicBody
 
-var speed = 7
-const ACCEL_DEFAULT = 7
+var speed = 6
+var normal_speed = speed
+var walk_speed = speed/2.5
+const ACCEL_DEFAULT = 10
 const ACCEL_AIR = 1
 onready var accel = ACCEL_DEFAULT
 var gravity = 9.8
@@ -103,6 +105,11 @@ func _physics_process(delta):
 			light.light_energy = 0.5
 
 	#make it move
+	if Input.is_action_just_pressed("walk"):
+		speed = walk_speed
+	if Input.is_action_just_released("walk"):
+		speed = normal_speed
+	
 	velocity = velocity.linear_interpolate(direction * speed, accel * delta)
 	movement = velocity + gravity_vec
 	

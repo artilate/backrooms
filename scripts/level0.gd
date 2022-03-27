@@ -3,7 +3,8 @@ extends Spatial
 func _ready():
 	$Roof.visible = true
 	$lights/light.lightFlicker()
-	$WorldEnvironment.environment.ambient_light_color = Color(0, 0, 0)
+	$WorldEnvironment.environment.ambient_light_color = Color("#2c2c2c")
+	#$WorldEnvironment.environment.ambient_light_energy = 0.05
 	$WorldEnvironment.environment.ambient_light_energy = 0
 	showFlashlight()
 

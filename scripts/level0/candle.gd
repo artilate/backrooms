@@ -13,6 +13,7 @@ func _physics_process(delta):
 			yield(get_tree().create_timer(2), "timeout")
 			if raycast.get_collider().name == "candleArea" and played == false:
 				played = true
+				self.visible = false
 				sound.playing = true
 				yield(get_tree().create_timer(4.52), "timeout")
 				sound.playing = false
