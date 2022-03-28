@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/shaders/floor.tres" type="Material" id=2]
@@ -6,20 +6,21 @@
 [ext_resource path="res://assets/shaders/wall.tres" type="Material" id=4]
 [ext_resource path="res://scenes/demo.gd" type="Script" id=5]
 [ext_resource path="res://assets/wall.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/sprites/windowEntity.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/entities/windowEntity.png" type="Texture" id=7]
 [ext_resource path="res://scripts/window1.gd" type="Script" id=8]
 [ext_resource path="res://assets/sounds/earrapemoan.mp3" type="AudioStream" id=9]
 [ext_resource path="res://assets/light.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/fonts/JetBrainsMono-Medium.tres" type="DynamicFont" id=11]
 [ext_resource path="res://assets/meshes/levelObjects/colaBloxy.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/meshes/objects/flashlight.obj" type="ArrayMesh" id=13]
 [ext_resource path="res://scripts/colaTable.gd" type="Script" id=14]
 [ext_resource path="res://assets/sounds/bloxyCola.mp3" type="AudioStream" id=15]
-[ext_resource path="res://scenes/flashlight.gd" type="Script" id=16]
+[ext_resource path="res://scripts/flashlight.gd" type="Script" id=16]
 
 [sub_resource type="Environment" id=17]
 
-[sub_resource type="BoxShape" id=16]
-extents = Vector3( 1, 1.5, 1 )
+[sub_resource type="CylinderShape" id=22]
+radius = 0.5
 
 [sub_resource type="BoxShape" id=18]
 extents = Vector3( 1, 2.75, 1 )
@@ -134,11 +135,13 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.5, 3
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.375, 3.6125, -11.625 )
 
 [node name="Roof" parent="." instance=ExtResource( 3 )]
+cast_shadow = 0
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875, 2, 3.25 )
 
 [node name="FloorCSG" type="CSGBox" parent="."]
+cast_shadow = 0
 use_collision = true
 width = 300.0
 height = 1.0
@@ -147,7 +150,7 @@ material = ExtResource( 2 )
 
 [node name="Objects" type="Node" parent="."]
 
-[node name="colaTable" type="StaticBody" parent="Objects"]
+[node name="colaTable" type="Spatial" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.375, 0.75, -11.625 )
 script = ExtResource( 14 )
 
@@ -158,9 +161,11 @@ volume_db = -3.0
 [node name="colaBloxy" parent="Objects/colaTable" instance=ExtResource( 12 )]
 transform = Transform( -0.424264, 0, -0.424264, 0, 0.6, 0, 0.424264, 0, -0.424264, 0, -0.425, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Objects/colaTable"]
-transform = Transform( -0.4, 0, 3.49691e-08, 0, 0.24, 0, -3.49691e-08, 0, -0.4, 0, 0.375, 0 )
-shape = SubResource( 16 )
+[node name="StaticBody" type="StaticBody" parent="Objects/colaTable/colaBloxy"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/colaTable/colaBloxy/StaticBody"]
+transform = Transform( 0.471405, 0, -0.471405, 0, 0.4, 0, 0.471405, 0, 0.471405, 0, 1.33333, 0 )
+shape = SubResource( 22 )
 
 [node name="Area" type="Area" parent="Objects/colaTable"]
 collision_layer = 2
@@ -183,10 +188,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -75.5
-margin_top = -7.0
-margin_right = 75.5
-margin_bottom = 7.0
+margin_left = -95.0
+margin_top = 39.0
+margin_right = 95.0
+margin_bottom = 61.0
+custom_fonts/font = ExtResource( 11 )
 text = "FLASHLIGHT OBTAINED"
 align = 1
 
@@ -232,10 +238,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -93.5
-margin_top = -7.0
-margin_right = 93.5
-margin_bottom = 7.0
+margin_left = -105.0
+margin_top = 39.0
+margin_right = 105.0
+margin_bottom = 61.0
+custom_fonts/font = ExtResource( 11 )
 text = "PRESS `E` TO INTERACT"
 align = 1
 

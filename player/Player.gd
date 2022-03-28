@@ -13,8 +13,9 @@ var cam_accel = 40
 var mouse_sense = 0.15
 var zoom_sense = mouse_sense/2.5
 var normal_sense = mouse_sense
-var zoom
+var zoom : bool
 var snap
+var mouse_capture : bool
 
 var direction = Vector3()
 var velocity = Vector3()
@@ -29,10 +30,11 @@ onready var raycast = $Head/Camera/RayCast
 func _ready():
 	#hides the cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	mouse_capture = true
 
 func _input(event):
 	#get mouse input for camera rotation
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and Main.mouse_lock == false:
 		if zoom == true:
 			rotate_y(deg2rad(-event.relative.x * zoom_sense))
 			head.rotate_x(deg2rad(-event.relative.y * zoom_sense))
@@ -110,7 +112,41 @@ func _physics_process(delta):
 	if Input.is_action_just_released("walk"):
 		speed = normal_speed
 	
+	#unlock/lock mouse
+	if Input.is_action_just_pressed("mouseLock"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		mouse_capture = false
+	if Input.is_mouse_button_pressed(BUTTON_LEFT) and mouse_capture == false:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		mouse_capture = true
+
 	velocity = velocity.linear_interpolate(direction * speed, accel * delta)
 	movement = velocity + gravity_vec
 	
-	move_and_slide_with_snap(movement, snap, Vector3.UP)
+	if Main.kbb_lock == false:
+		move_and_slide_with_snap(movement, snap, Vector3.UP)
+
+func updateHud():
+	if Main.note1 == true:
+		$hud/note1.visible = true
+
+func blackScreen(value):
+	var tween = $blackTween
+	var black = $blackScreen
+	if value == true:
+		tween.interpolate_property(black, "modulate", Color(1, 1, 1, 0), Color(1, 1, 1, 1), 3, Tween.TRANS_LINEAR)
+		tween.start()
+		yield(get_tree().create_timer(.05), "timeout")
+		black.visible = true
+	if value == false:
+		tween.interpolate_property(black, "modulate", Color(1, 1, 1, 1), Color(1, 1, 1, 0), 3, Tween.TRANS_LINEAR)
+		tween.start()
+		yield(get_tree().create_timer(.05), "timeout")
+		black.visible = true
+
+func crosshair(value):
+	var cross = $Head/Camera/TextureRect
+	if value == true:
+		cross.visible = true
+	if value == false:
+		cross.visible = false
