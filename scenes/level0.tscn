@@ -189,23 +189,8 @@ material/0 = null
 transform = Transform( 0.270633, 0, -0.15625, 0, 0.3125, 0, 0.15625, 0, 0.270633, -0.520834, 1.66667, -1.25 )
 visible = false
 
-[node name="Area" type="Area" parent="objects/table1" index="3"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape" type="CollisionShape" parent="objects/table1/Area" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97916, 0, 1.35416 )
-shape = SubResource( 19 )
-
-[node name="crossTween" type="Tween" parent="objects/table1" index="4"]
-
-[node name="crossPos" type="Tween" parent="objects/table1" index="5"]
-
-[node name="camTween" type="Tween" parent="objects/table1" index="6"]
-
-[node name="candle2" parent="objects/table1" index="7" instance=ExtResource( 11 )]
+[node name="candle2" parent="objects/table1" index="3" instance=ExtResource( 11 )]
 transform = Transform( -2.48353e-07, 0, -0.675, 0, 0.675, 0, 0.675, 0, -2.48353e-07, -1.77083, 1.77083, 1.45833 )
-visible = false
 
 [node name="OmniLight" type="OmniLight" parent="objects/table1/candle2" index="2"]
 transform = Transform( 6.17284, 0, -1.43051e-06, 0, 6.17284, 0, 1.43051e-06, 0, 6.17284, 0, 1.85185, 0 )
@@ -214,7 +199,7 @@ shadow_enabled = true
 omni_range = 1.0
 
 [node name="Particles" type="Particles" parent="objects/table1/candle2" index="3"]
-transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 1.38889, 0 )
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 1.54321, -0.0771561 )
 cast_shadow = 0
 amount = 4
 lifetime = 2.5
@@ -222,6 +207,20 @@ randomness = 0.5
 visibility_aabb = AABB( -0.5, -0.5, -0.5, 1, 1, 1 )
 process_material = SubResource( 10 )
 draw_pass_1 = SubResource( 12 )
+
+[node name="Area" type="Area" parent="objects/table1" index="4"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/table1/Area" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97916, 0, 1.35416 )
+shape = SubResource( 19 )
+
+[node name="crossTween" type="Tween" parent="objects/table1" index="5"]
+
+[node name="crossPos" type="Tween" parent="objects/table1" index="6"]
+
+[node name="camTween" type="Tween" parent="objects/table1" index="7"]
 
 [node name="statue1" parent="objects" index="3" instance=ExtResource( 18 )]
 transform = Transform( 0.00494167, 0.0564842, -0.0982073, 0.112968, -0.00988347, -7.27379e-08, -0.00855937, -0.0978336, -0.0567, -0.625002, 0.125, 17.95 )

@@ -48,7 +48,7 @@ func _physics_process(delta):
 		yield(get_tree().create_timer(1), "timeout")
 		pos.interpolate_property(cross, "translation", Vector3(0, 8, 0), Vector3(0, 5.233037, 0), 0.50, Tween.TRANS_QUINT, Tween.EASE_IN )
 		pos.start()
-		yield(get_tree().create_timer(1.5), "timeout")
+		yield(get_tree().create_timer(0.5), "timeout")
 		rootNode.get_node("objects/table1/candle2/OmniLight").visible = false
 		rootNode.get_node("objects/table1/candle2/Particles").emitting = false
 		yield(get_tree().create_timer(2),"timeout")
