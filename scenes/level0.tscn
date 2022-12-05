@@ -111,8 +111,6 @@ shape = SubResource( 18 )
 transform = Transform( 0.084, 0, 0, 0, 0.134188, -0.0287297, 0, 0.0488405, 0.0789342, -23.8, 0.15, 6.775 )
 mesh = ExtResource( 9 )
 skeleton = NodePath("../..")
-material/0 = null
-material/1 = null
 script = ExtResource( 8 )
 
 [node name="label" type="Label" parent="objects/flashlight" index="0"]
@@ -183,7 +181,6 @@ script = ExtResource( 19 )
 transform = Transform( -0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, -0.766044, 1.45834, 1.77083, 1.04167 )
 cast_shadow = 0
 mesh = SubResource( 16 )
-material/0 = null
 
 [node name="statue1" parent="objects/table1" index="2" instance=ExtResource( 18 )]
 transform = Transform( 0.270633, 0, -0.15625, 0, 0.3125, 0, 0.15625, 0, 0.270633, -0.520834, 1.66667, -1.25 )

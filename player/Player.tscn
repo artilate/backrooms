@@ -10,8 +10,8 @@ radius = 0.5
 height = 2.0
 
 [sub_resource type="CylinderShape" id=4]
-radius = 0.5
 height = 3.0
+radius = 0.5
 
 [sub_resource type="CapsuleMesh" id=2]
 
@@ -35,7 +35,6 @@ shape = SubResource( 4 )
 transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, 1, 0, -0.5, -4.37114e-08, 0, 0, 0 )
 cast_shadow = 0
 mesh = SubResource( 2 )
-material/0 = null
 
 [node name="proxLight" type="OmniLight" parent="."]
 light_color = Color( 0.996078, 0.988235, 0.784314, 1 )

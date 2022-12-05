@@ -178,8 +178,6 @@ shape = SubResource( 18 )
 transform = Transform( 0.084, 0, 0, 0, 0.134188, -0.0287297, 0, 0.0488405, 0.0789342, -4.75, 0.65, -9.1 )
 mesh = ExtResource( 13 )
 skeleton = NodePath("../..")
-material/0 = null
-material/1 = null
 script = ExtResource( 16 )
 
 [node name="label" type="Label" parent="Objects/flashlight"]
@@ -264,4 +262,5 @@ color = Color( 0.172549, 0.172549, 0.172549, 1 )
 [connection signal="area_entered" from="Objects/flashlight/Area" to="Objects/flashlight" method="_on_Area_area_entered"]
 [connection signal="area_exited" from="Objects/flashlight/Area" to="Objects/flashlight" method="_on_Area_area_exited"]
 [connection signal="area_entered" from="window1/Area" to="window1" method="_on_Area_area_entered"]
+[connection signal="area_exited" from="window1/Area" to="window1" method="_on_Area_area_exited"]
 [connection signal="area_entered" from="tutArea" to="." method="_on_tutArea_area_entered"]

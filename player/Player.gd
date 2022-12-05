@@ -10,7 +10,7 @@ var gravity = 9.8
 var jump = 5
 
 var cam_accel = 40
-var mouse_sense = 0.15
+var mouse_sense = 0.1
 var zoom_sense = mouse_sense/2.5
 var normal_sense = mouse_sense
 var zoom : bool
@@ -101,10 +101,10 @@ func _physics_process(delta):
 
 	#flashlight
 	if Input.is_action_just_pressed("flashlight") and Main.flashlightObtained == true:
-		if light.light_energy == 0.5:
+		if light.light_energy > 0:
 			light.light_energy = 0
 		else:
-			light.light_energy = 0.5
+			light.light_energy = 0.75
 
 	#make it move
 	if Input.is_action_just_pressed("walk"):
