@@ -1,6 +1,7 @@
 extends Spatial
 
 var inside = false
+var cutscenePlayed = false
 
 onready var rootNode = get_tree().get_current_scene()
 onready var paper = $paper1
@@ -17,7 +18,8 @@ func _physics_process(delta):
 	var rotate = get_node("crossTween")
 	var pos = get_node("crossPos")
 	var camera = get_node("camTween")
-	if Input.is_action_just_pressed("interact") and inside == true and $statue1.visible == true and $candle2.visible == true:
+	if Input.is_action_just_pressed("interact") and inside == true and $statue1.visible == true and $candle2.visible == true and cutscenePlayed == false:
+		cutscenePlayed = true
 		paper.visible = false
 		Main.note1 = true
 		rootNode.get_node("Player").updateHud()

@@ -90,14 +90,15 @@ func _physics_process(delta):
 	
 	#camera zoom 
 	var tween = get_node("cameraZoom")
-	if Input.is_action_just_pressed("zoom"):
-		zoom = true
-		tween.interpolate_property(camera, "fov", 70, 20, 0.5, Tween.TRANS_QUART, Tween.EASE_OUT)
-		tween.start()
-	if Input.is_action_just_released("zoom"):
-		zoom = false
-		tween.interpolate_property(camera, "fov", 20, 70, 0.5, Tween.TRANS_QUART, Tween.EASE_OUT)
-		tween.start()
+	if Main.mouse_lock == false:
+		if Input.is_action_just_pressed("zoom"):
+			zoom = true
+			tween.interpolate_property(camera, "fov", 70, 20, 0.5, Tween.TRANS_QUART, Tween.EASE_OUT)
+			tween.start()
+		if Input.is_action_just_released("zoom"):
+			zoom = false
+			tween.interpolate_property(camera, "fov", 20, 70, 0.5, Tween.TRANS_QUART, Tween.EASE_OUT)
+			tween.start()
 
 	#flashlight
 	if Input.is_action_just_pressed("flashlight") and Main.flashlightObtained == true:

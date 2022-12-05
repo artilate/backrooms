@@ -6,9 +6,8 @@ onready var player = get_node("../Player")
 onready var raycast = player.get_node("Head/Camera/RayCast")
 
 func _on_Area_area_entered(area):
-	raycast.enable = true
+	yield(get_tree().create_timer(3), "timeout")
 	if raycast.is_colliding():
-		print("OMG COLLIDING")
 		if raycast.get_collider().name == "raycastWindow" and played == false:
 			get_tree().change_scene("res://scenes/level1.tscn")
 			if(played == false):
@@ -27,4 +26,4 @@ func playSound():
 
 
 func _on_Area_area_exited(area):
-	raycast.enabled = false
+	pass
