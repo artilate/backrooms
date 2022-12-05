@@ -9,7 +9,7 @@ func _on_Area_area_entered(area):
 	raycast.enable = true
 	if raycast.is_colliding():
 		print("OMG COLLIDING")
-		if raycast.get_collider().name == sprite and played == false:
+		if raycast.get_collider().name == "raycastWindow" and played == false:
 			get_tree().change_scene("res://scenes/level1.tscn")
 			if(played == false):
 				played = true
