@@ -57,6 +57,8 @@ func _physics_process(delta):
 		player.blackScreen(true)
 		yield(get_tree().create_timer(3), "timeout")
 		#SOMETHING HAPPENS LIKE DOOR OPENS AND SUCH
+		
+		#^^^
 		yield(get_tree().create_timer(1), "timeout")
 		player.blackScreen(false)
 		player.crosshair(true)

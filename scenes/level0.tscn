@@ -173,6 +173,8 @@ visibility_aabb = AABB( -0.5, -0.5, -0.5, 1, 1, 1 )
 process_material = SubResource( 10 )
 draw_pass_1 = SubResource( 12 )
 
+[node name="Sprite3D" type="Sprite3D" parent="objects/candle" index="7"]
+
 [node name="table1" parent="objects" index="2" instance=ExtResource( 16 )]
 transform = Transform( 0.24, 0, 0, 0, 0.24, 0, 0, 0, 0.24, 7.5, 0.6, -3.5 )
 script = ExtResource( 19 )
