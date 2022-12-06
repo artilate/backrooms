@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://assets/meshes/levels/level0.glb" type="PackedScene" id=1]
 [ext_resource path="res://assets/shaders/wall.tres" type="Material" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://textures/backrooms/paper1.png" type="Texture" id=17]
 [ext_resource path="res://assets/meshes/levelObjects/statue1.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/meshes/levelObjects/table1.gd" type="Script" id=19]
+[ext_resource path="res://icon.png" type="Texture" id=20]
 
 [sub_resource type="Environment" id=1]
 ambient_light_color = Color( 0.356863, 0.356863, 0.356863, 1 )
@@ -120,9 +121,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -75.5
-margin_top = -7.0
+margin_top = 30.084
 margin_right = 75.5
-margin_bottom = 7.0
+margin_bottom = 44.084
 text = "FLASHLIGHT OBTAINED"
 align = 1
 
@@ -145,7 +146,7 @@ light_energy = 0.75
 omni_range = 1.0
 
 [node name="sound" type="AudioStreamPlayer3D" parent="objects/candle" index="3"]
-transform = Transform( -3.08642, 0, 5.34584, 0, 6.17284, 0, -5.34584, 0, -3.08642, -70.1237, 10.6482, -57.8775 )
+transform = Transform( -3.08642, 0, 5.34584, 0, 6.17284, 0, -5.34584, 0, -3.08642, -89.1152, 10.6482, -136.922 )
 stream = ExtResource( 13 )
 unit_size = 3.0
 
@@ -233,6 +234,10 @@ collision_mask = 2
 [node name="CollisionShape" type="CollisionShape" parent="objects/statue1/Area" index="0"]
 transform = Transform( 0.997961, 0.0637922, -0.000248934, -0.0552654, 0.862609, -0.502843, -0.0318628, 0.501832, 0.864378, 12.372, 2.29131, -2.51449 )
 shape = SubResource( 20 )
+
+[node name="interactIndicator" type="Sprite3D" parent="objects/statue1" index="4"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 7.67185, 1.59674, -1.30735 )
+texture = ExtResource( 20 )
 
 [node name="lights" type="Node" parent="." index="6"]
 
