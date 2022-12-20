@@ -18,10 +18,6 @@ config/icon="res://icon.png"
 
 Main="*res://scripts/Main.gd"
 
-[debug]
-
-settings/fps/force_fps=60
-
 [display]
 
 window/size/width=768

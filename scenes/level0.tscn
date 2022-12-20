@@ -223,7 +223,7 @@ shape = SubResource( 19 )
 [node name="camTween" type="Tween" parent="objects/table1" index="7"]
 
 [node name="statue1" parent="objects" index="3" instance=ExtResource( 18 )]
-transform = Transform( 0.00494167, 0.0564842, -0.0982073, 0.112968, -0.00988347, -7.27379e-08, -0.00855937, -0.0978336, -0.0567, -0.625002, 0.125, 17.95 )
+transform = Transform( 0.00494172, 0.0564842, -0.0982073, 0.112968, -0.00988348, 4.63848e-09, -0.00855931, -0.0978336, -0.0567, -0.625002, 0.125, 17.95 )
 script = ExtResource( 10 )
 
 [node name="Area" type="Area" parent="objects/statue1" index="3"]
@@ -236,7 +236,7 @@ transform = Transform( 0.997961, 0.0637922, -0.000248934, -0.0552654, 0.862609, 
 shape = SubResource( 20 )
 
 [node name="interactIndicator" type="Sprite3D" parent="objects/statue1" index="4"]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 7.67185, 1.59674, -1.30735 )
+transform = Transform( 2, 0, -7.45058e-09, 0, 2, 1.19209e-07, 0, -1.19209e-07, 2, 4.82223, 6.10352e-05, -3.8147e-05 )
 texture = ExtResource( 20 )
 
 [node name="lights" type="Node" parent="." index="6"]
