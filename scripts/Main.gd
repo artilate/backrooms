@@ -8,3 +8,4 @@ var note1 = false
 
 func _ready():
 	pass
+

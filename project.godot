@@ -22,8 +22,9 @@ Main="*res://scripts/Main.gd"
 
 window/size/width=768
 window/size/height=432
-window/size/resizable=false
-window/size/fullscreen=true
+window/size/test_width=1920
+window/size/test_height=1080
+window/tablet_driver=""
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 

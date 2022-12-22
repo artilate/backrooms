@@ -10,7 +10,7 @@ var gravity = 9.8
 var jump = 5
 
 var cam_accel = 40
-var mouse_sense = 0.1
+var mouse_sense = 0.15
 var zoom_sense = mouse_sense/2.5
 var normal_sense = mouse_sense
 var zoom : bool
@@ -27,10 +27,15 @@ onready var camera = $Head/Camera
 onready var light = $Head/Camera/Flashlight
 onready var raycast = $Head/Camera/RayCast
 
+var maximize = OS.is_window_maximized()
+
 func _ready():
 	#hides the cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	mouse_capture = true
+	#makes windowed maximized, mainly usefull for testing purposes
+	if maximize == false:
+		OS.set_window_maximized(true)
 
 func _input(event):
 	#get mouse input for camera rotation
