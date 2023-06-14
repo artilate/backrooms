@@ -82,6 +82,9 @@ func _physics_process(delta):
 	#	snap = Vector3.ZERO
 	#	gravity_vec = Vector3.UP * jump
 	
+	if Input.is_action_just_pressed("quit_game"):
+		get_tree().quit()
+	
 	#change mouse sensitivty
 	if Input.is_action_just_pressed("sense_up"):
 		mouse_sense = mouse_sense + 0.025

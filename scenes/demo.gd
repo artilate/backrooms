@@ -6,8 +6,7 @@ var tutPlayed = false
 func _ready():
 	$Roof.visible = true
 	self.visible = true
-	preload("res://scenes/level0.tscn")
-	
+	load("res://scenes/level0.tscn")
 	#enabled raycast for this level, could be performance impacting
 	player.raycast.enabled = true
 

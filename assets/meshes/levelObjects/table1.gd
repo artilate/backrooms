@@ -64,7 +64,7 @@ func _physics_process(delta):
 		player.crosshair(true)
 		Main.kbb_lock = false
 		Main.mouse_lock = false
-	elif Input.is_action_just_pressed("interact") and inside == true:
+	elif Input.is_action_just_pressed("interact") and inside == true and cutscenePlayed == false:
 		paper.visible = false
 		Main.note1 = true
 		rootNode.get_node("Player").updateHud()
@@ -72,3 +72,6 @@ func _physics_process(delta):
 		for i in rootNode.get_node("lights/bigroomLights").get_children():
 			i.get_node("OmniLight").light_energy = 0
 		
+
+func openDoor():
+	pass
