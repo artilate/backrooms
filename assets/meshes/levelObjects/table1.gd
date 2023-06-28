@@ -7,6 +7,7 @@ onready var rootNode = get_tree().get_current_scene()
 onready var paper = $paper1
 onready var cross = $statue1/cross
 onready var player = rootNode.get_node("Player")
+onready var door1 = rootNode.get_node("door1")
 
 func _on_Area_area_entered(area):
 	inside = true
@@ -57,7 +58,7 @@ func _physics_process(delta):
 		player.blackScreen(true)
 		yield(get_tree().create_timer(3), "timeout")
 		#SOMETHING HAPPENS LIKE DOOR OPENS AND SUCH
-		
+		openDoor("ritual")
 		#^^^
 		yield(get_tree().create_timer(1), "timeout")
 		player.blackScreen(false)
@@ -71,7 +72,11 @@ func _physics_process(delta):
 		yield(get_tree().create_timer(1.5), "timeout")
 		for i in rootNode.get_node("lights/bigroomLights").get_children():
 			i.get_node("OmniLight").light_energy = 0
+		openDoor("lever")
 		
 
-func openDoor():
-	pass
+func openDoor(case):
+	if case == "ritual":
+		door1.translation = Vector3(0, 10, 0)
+	elif case == "lever":
+		door1.translation = Vector3(0,10,0)
