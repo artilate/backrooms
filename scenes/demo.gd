@@ -1,6 +1,6 @@
-extends Spatial
+extends Node3D
 
-onready var player = $Player
+@onready var player = $Player
 var tutPlayed = false
 
 func _ready():
@@ -15,5 +15,5 @@ func _on_tutArea_area_entered(area):
 	if tutPlayed == false:
 		tutPlayed = true
 		$tutArea/tutLabel.visible = true
-		yield(get_tree().create_timer(1), "timeout")
+		await get_tree().create_timer(1).timeout
 		$tutArea/tutLabel.visible = false

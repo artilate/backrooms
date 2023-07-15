@@ -1,4 +1,4 @@
-extends MeshInstance
+extends MeshInstance3D
 
 var inside = false
 
@@ -13,5 +13,5 @@ func _physics_process(delta):
 		Main.flashlightObtained = true
 		self.visible = false
 		$label.visible = true
-		yield(get_tree().create_timer(1), "timeout")
+		await get_tree().create_timer(1).timeout
 		$label.visible = false

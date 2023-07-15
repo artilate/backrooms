@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d216fru34a048"
-path.s3tc="res://.godot/imported/windowEntity.png-4f36e607c3b71a86f3882228b6d81cbf.s3tc.ctex"
+uid="uid://vx183suy8n2l"
+path.s3tc="res://.godot/imported/colaBloxy_Handle1_diff.png-bc5d79657b554de57bd0f8efe68c62b4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://assets/sprites/entities/windowEntity.png"
-dest_files=["res://.godot/imported/windowEntity.png-4f36e607c3b71a86f3882228b6d81cbf.s3tc.ctex"]
+source_file="res://assets/meshes/objects/colaBloxy_Handle1_diff.png"
+dest_files=["res://.godot/imported/colaBloxy_Handle1_diff.png-bc5d79657b554de57bd0f8efe68c62b4.s3tc.ctex"]
 
 [params]
 

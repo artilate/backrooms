@@ -1,9 +1,9 @@
-extends Spatial
+extends Node3D
 
 var inside = false
-onready var image = $interactIndicator
-onready var player = get_node("../../Player")
-onready var head = player.get_node("Head")
+@onready var image = $interactIndicator
+@onready var player = get_node("../../Player")
+@onready var head = player.get_node("Head")
 
 func _on_Area_area_entered(area):
 	inside = true

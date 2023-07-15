@@ -2,8 +2,8 @@
 
 [ext_resource path="res://assets/shaders/wall.tres" type="Material" id=1]
 
-[node name="Wall" type="CSGBox"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2, 5.5 )
+[node name="Wall" type="CSGBox3D"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2, 5.5 )
 use_in_baked_light = true
 use_collision = true
 width = 5.0

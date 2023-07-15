@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 func _ready():
 	$Roof.visible = true
@@ -11,7 +11,7 @@ func _ready():
 
 func showFlashlight():
 	if Main.flashlightObtained == true:
-		yield(get_tree().create_timer(1), "timeout")
+		await get_tree().create_timer(1).timeout
 		$tutFlash.visible = true
-		yield(get_tree().create_timer(1), "timeout")
+		await get_tree().create_timer(1).timeout
 		$tutFlash.visible = false
